@@ -1,0 +1,386 @@
+@charset 'UTF-8';
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+
+/* Icons */
+@font-face
+{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('./fonts/slick.eot');
+    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+}
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+    transition: all .3s linear;
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before
+{
+    opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+{
+    opacity: .25;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+
+    opacity: .75;
+    color: white;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev
+{
+    left: -25px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: -25px;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '';
+}
+
+.slick-next
+{
+    right: -25px;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: -25px;
+}
+.slick-next:before
+{
+    content: '';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '';
+}
+
+/* Dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.slick-dots
+{
+    position: absolute;
+    bottom: -25px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+.slick-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: none;
+    
+}
+.slick-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: black;
+}
+.banner .slick-dots
+{
+    bottom: 21px;
+    display: inline-flex;
+    width: auto;
+    right: 50%;
+    margin-right: -36px;
+}
+.banner .slick-dots li
+{
+    width: 18px;
+    display: flex;
+    align-items: center;
+    margin: 0 3px; 
+}
+.banner .slick-dots li button
+{
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: #D5AC5F;
+    display: block;
+    padding: 0;
+}
+.banner .slick-dots .slick-active button
+{
+    height: 4px;
+}
+.about-us .slick-dots
+{
+    position: absolute;
+    bottom: 61px;
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.about-us .slick-dots li
+{
+    width: 97px;
+    height: 97px;
+    margin: 0;
+    display: block;
+}
+.about-us .slick-dots li:before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(213, 172, 95, 0.5);
+}
+.about-us .slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: green;
+}
+
+
+
+
+.slider-porfolio .slick-arrow,
+.slider-porfolio-mobile .slick-arrow,
+.slider-team .slick-arrow,
+.instagram-slider .slick-arrow,
+.banner-slifer .slick-arrow,
+.about-us-slider .slick-arrow
+{
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    z-index: 1;
+    width: 40px;
+    height: 14px;
+}
+.slider-porfolio .slick-prev,
+.slider-porfolio-mobile .slick-prev,
+.slider-team .slick-prev,
+.instagram-slider .slick-prev,
+.about-us-slider .slick-prev
+{
+    background: url("../img/svg/glide-arrow-left.svg") no-repeat;
+    right: 71px;
+    left: auto;
+    bottom: -44px;
+}
+.slider-porfolio .slick-next,
+.slider-porfolio-mobile .slick-next,
+.slider-team .slick-next,
+.instagram-slider .slick-next,
+.about-us-slider .slick-next
+{
+    background: url("../img/svg/glide-arrow-right.svg") no-repeat;
+    right: 0;
+    bottom: -44px;
+}
+.slick-next:hover
+{
+    right: -7px;
+}
+.slick-prev:hover
+{
+    right: 78px;
+}
+.slider-team .slick-arrow,
+.instagram-slider .slick-arrow
+{
+    bottom: -51px;
+}
+.about-us-slider .slick-arrow
+{
+    bottom: 19px;
+}
+#slick-slide-control40
+{
+    background: url('https://www.salonsdirect.com/blog/wp-content/uploads/2017/01/Stefan1-Blog-Image.jpg') no-repeat;
+    background-size: cover;
+}
+#slick-slide-control41
+{
+    background: url('http://cdn.shopify.com/s/files/1/0881/3258/collections/barber_chair_collection-min_800x.jpg?v=1554738689') no-repeat;
+    background-size: cover;
+}
+#slick-slide-control42
+{
+    background: url('http://www.svbbarbershop.com/wp-content/uploads/2013/12/barber-gallery-7.jpg') no-repeat;
+    background-size: cover;
+}
+.slider-porfolio-mobile .slick-track
+{
+    display: flex;
+    align-items: center;
+}
+
+ .instagram-slider .slick-slide {
+    margin: 0 15px;
+  }
+  /* the parent */
+ .instagram-slider .slick-list {
+    margin: 0 -15px;
+  }
+
+@media (min-width: 768px)
+{
+    .slider-porfolio .slick-arrow
+    {
+       bottom: auto;
+       top: -40px;
+    }
+    .banner .slick-dots
+    {
+        bottom: 43px;
+        margin-right: 0;
+        right: -36px;
+    }
+}
+@media (min-width: 992px)
+{
+    .about-us .slick-dots
+    {
+        bottom: 72px;
+    }
+    .about-us .slick-dots li
+    {
+        width: 117px;
+        height: 117px;
+    }
+    .about-us-slider .slick-arrow
+    {
+        bottom: 11px;
+    }
+}
+

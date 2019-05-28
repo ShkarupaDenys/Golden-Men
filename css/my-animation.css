@@ -1,0 +1,31 @@
+
+/*--------------------   animation   --------------------*/
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(.8);
+    opacity: 0.8;
+  }
+  100% {my
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.scaleIn
+{
+  animation-name: scaleIn;
+}
+
+@keyframes loadLine {
+  0% {
+  transform: translateX(-100%);  
+  } 
+  100%
+  {
+    transform: translateX(0);
+  }
+}
+.loadLine
+{
+  animation-name: loadLine;
+}
