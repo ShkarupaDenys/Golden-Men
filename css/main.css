@@ -176,7 +176,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 {
 	content: "05/";
 	left: 10px;
-    top: -22px;
+    /*top: -22px;*/
 }
 .frame-caption_6:before
 {
@@ -896,8 +896,8 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 
 .reviews
 {
-	padding-bottom: 114px;
 	overflow: hidden;
+	padding: 10px 0 114px;
 }
 /*.video
 {

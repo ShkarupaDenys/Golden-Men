@@ -1,39 +1,34 @@
 
+
 // --------------------   service   --------------------
 
-let service = document.querySelectorAll('.service'),
-    hamburgerMenu = document.querySelector('.hamburger-menu'),
-    menu = document.querySelector('.nav-mobile');
-
-
-
+let service = document.querySelectorAll('.service');
+    
 function openService(a){
         a.forEach( elem => {
             elem.addEventListener('click', e => {
                 elem.classList.toggle('service_active');
             })
         })
-}
+};
 
 if ( document.body.clientWidth <= 991 ) {
     openService(service);
 } else {
     null;
-}
+};
 
+// --------------------   hamburgerMenu   --------------------
 
-
-
+let hamburgerMenu = document.querySelector('.hamburger-menu'),
+    menu = document.querySelector('.nav-mobile');
 
 hamburgerMenu.addEventListener('click', ()=>{
     hamburgerMenu.classList.toggle('hamburger-menu_active');
     menu.classList.toggle('nav-mobile_active');
-})
-
-
+});
 
 // --------------------   accordion   --------------------
-
 
 let accordion = document.querySelectorAll('.accordion');
 
@@ -48,48 +43,86 @@ let openAccordion = (e) => {
     }
 };
 
-
 accordion.forEach(elem => {
     elem.addEventListener('click', openAccordion);
-})
+});
 
+//--------------------   header   --------------------
 
+let header = document.querySelector('.header');
 
+  window.onscroll = function() {
 
-
-
-
-
-
-
-// new Glide(".glide_banner", {
-//     type: "carousel",
-//     startAt: 0,
-//     perView: 1,
-//     swipe: true
+    let scrolled = window.pageYOffset;
     
-// }).mount();
+    if ( scrolled > 10 ) {
+        header.classList.add('header_active');
+    } else {
+        header.classList.remove('header_active');
+    }
+  };
 
+//--------------------   modal   --------------------
 
+let modal = document.querySelector('.modal'),
+    btnModal = document.querySelectorAll('.button_record'),
+    modalBackground = document.querySelector('.modal__background'),
+    btnCloseModal = document.querySelector('.modal__close');
 
+const openModal = () => {
+    modal.classList.add('active');
+}
 
-// new Glide(".glide_about-us", {
-//   type: "carousel",
-//     startAt: 0,
-//     perView: 1,
-//     swipe: true
-// }).mount();
+const closeModal = () => {
+    modal.classList.remove('active');
+}
 
+btnModal.forEach( e => {
+    e.addEventListener('click', openModal);
+} )
 
+modalBackground.addEventListener('click', closeModal);
+btnCloseModal.addEventListener('click', closeModal);
 
-// new Glide(".glide_portfolio", {
-//   type: "carousel",
-//     startAt: 0,
-//     perView: 1,
-//     swipe: true
-// }).mount();
+//--------------------  screenIPad   --------------------
 
+let screenIPad = document.querySelectorAll('.screen-iPad');
 
+if ( window.innerWidth === 1024 && window.innerHeight === 1366 ){
+    screenIPad.forEach((e) => {
+        e.classList.remove('col-lg-5')
+    }) 
+};
+
+//--------------------  video   --------------------
+
+let video = document.querySelector('.video'),
+    btnPlayPause = document.querySelector('.play-pause'),
+    videoCaption = document.querySelector('.frame-caption_7-wrapper'),
+    videoQuote = document.querySelector('.blockquote-wrapper');
+
+    btnPlayPause.addEventListener('click', function() {
+        if ( video.paused == true ) {
+            video.play();
+            btnPlayPause.classList.add('play-pause_hide');
+            video.setAttribute('controls', 'controls');
+            videoQuote.classList.add('blockquote_animate');
+            if ( document.body.clientWidth >= 768 ) {
+                videoCaption.classList.add('frame-caption_7_animate');
+            } else {
+                false;
+            }
+        } else {
+            video.pause();
+            video.removeAttribute('controls');
+        }
+    });
+
+//--------------------  WOW   --------------------
+
+new WOW().init();
+
+//--------------------  slick   --------------------
 
 $('.slider-banner').slick({
     infinite: true,
@@ -117,7 +150,6 @@ $('.slider-porfolio-mobile').slick({
     speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1
-   
 });
 
 $('.slider-porfolio').slick({
@@ -125,10 +157,8 @@ $('.slider-porfolio').slick({
     cssEase: 'ease',
     speed: 1500,
     slidesToShow: 1,
-    slidesToScroll: 1,
-   
+    slidesToScroll: 1,  
 });
-
 
 $('.slider-team').slick({
     infinite: true,
@@ -161,93 +191,28 @@ $('.instagram-slider').slick({
     ]
 });
 
+//--------------------  Glide   --------------------
 
-let video = document.querySelector('.video'),
-    btnPlayPause = document.querySelector('.play-pause'),
-    videoCaption = document.querySelector('.frame-caption_7-wrapper'),
-    videoQuote = document.querySelector('.blockquote-wrapper');
-
-    btnPlayPause.addEventListener('click', function() {
-        if ( video.paused == true ) {
-            video.play();
-            btnPlayPause.classList.add('play-pause_hide');
-            video.setAttribute('controls', 'controls');
-            
-            videoQuote.classList.add('blockquote_animate');
-            if ( document.body.clientWidth >= 768 ) {
-                videoCaption.classList.add('frame-caption_7_animate');
-            } else {
-                false;
-            }
-        } else {
-            video.pause();
-            video.removeAttribute('controls');
-        }
-    })
-
-
-    //-------------------- header
-
-    let header = document.querySelector('.header');
-
-
-  window.onscroll = function() {
-
-    let scrolled = window.pageYOffset;
+// new Glide(".glide_banner", {
+//     type: "carousel",
+//     startAt: 0,
+//     perView: 1,
+//     swipe: true
     
-    if ( scrolled > 10 ) {
-        header.classList.add('header_active');
-    } else {
-        header.classList.remove('header_active');
-    }
-  }
+// }).mount();
+// new Glide(".glide_about-us", {
+//   type: "carousel",
+//     startAt: 0,
+//     perView: 1,
+//     swipe: true
+// }).mount();
+// new Glide(".glide_portfolio", {
+//   type: "carousel",
+//     startAt: 0,
+//     perView: 1,
+//     swipe: true
+// }).mount();
 
-
-//-------------------- modal
-
-let modal = document.querySelector('.modal'),
-    btnModal = document.querySelectorAll('.button_record'),
-    modalBackground = document.querySelector('.modal__background'),
-    btnCloseModal = document.querySelector('.modal__close');
-
-
-
-const openModal = () => {
-    modal.classList.add('active');
-}
-
-const closeModal = () => {
-    modal.classList.remove('active');
-}
-
-btnModal.forEach( e => {
-    e.addEventListener('click', openModal);
-} )
-
-modalBackground.addEventListener('click', closeModal);
-btnCloseModal.addEventListener('click', closeModal);
-
-
-
-//-------------------- modal
-
-let screenIPad = document.querySelectorAll('.screen-iPad');
-
-if ( window.innerWidth === 1024 && window.innerHeight === 1366 ){
-    screenIPad.forEach((e) => {
-        e.classList.remove('col-lg-5');
-    }) 
-};
-
-
-
-
-
-
-
-
-
- 
 
 // window.onscroll = function() {
 //     let scrollTop = window.pageYOffset ;
@@ -288,14 +253,4 @@ if ( window.innerWidth === 1024 && window.innerHeight === 1366 ){
 
 
 
-//-------------------- animations
 
-
-// $(document).ready(function(){
-//     var fadeInUpBig = new WOW({
-//         boxClass:"main-text_animate",
-//         animateClass:"animated"
-//     });
-// })
-
-new WOW().init();

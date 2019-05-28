@@ -360,12 +360,6 @@
        bottom: auto;
        top: -40px;
     }
-    .banner .slick-dots
-    {
-        bottom: 43px;
-        margin-right: 0;
-        right: -36px;
-    }
 }
 @media (min-width: 992px)
 {
@@ -381,6 +375,12 @@
     .about-us-slider .slick-arrow
     {
         bottom: 11px;
+    }
+    .banner .slick-dots
+    {
+        bottom: 43px;
+        margin-right: 0;
+        right: -36px;
     }
 }
 
