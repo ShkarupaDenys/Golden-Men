@@ -1,41 +1,49 @@
 
+const navbar = document.querySelector('#navbar');
+const scrollspy = new VanillaScrollspy(navbar, 2000);
+scrollspy.init();
+
+const navbarMob = document.querySelector('#navbar-mob');
+const scrollspyMob = new VanillaScrollspy(navbarMob, 2000);
+scrollspyMob.init();
+
 // --------------------   scroll   --------------------
 
-document.addEventListener("DOMContentLoaded", function() {
-  var scrollLinks = document.querySelectorAll('.scroll-link');
-  for (var i = 0; i < scrollLinks.length; i++) {
-    scrollLinks[i].addEventListener("click", scrollHandler);
-  }
+// document.addEventListener("DOMContentLoaded", function() {
+//   var scrollLinks = document.querySelectorAll('.scroll-link');
+//   for (var i = 0; i < scrollLinks.length; i++) {
+//     scrollLinks[i].addEventListener("click", scrollHandler);
+//   }
 
-  function scrollHandler(event) {
-    event.preventDefault();
+//   function scrollHandler(event) {   
+//     event.preventDefault();
 
-    menu.classList.remove('nav-mobile_active');
-    hamburgerMenu.classList.remove('hamburger-menu_active');
+//     menu.classList.remove('nav-mobile_active');
+//     hamburgerMenu.classList.remove('hamburger-menu_active');
 
-    var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
-    var targetElementId = this.getAttribute("href").split("#")[1];
-    var goToPosition = document.getElementById(targetElementId).offsetTop - 56;
-    var distance = goToPosition - currentPosition;
+//     var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+//     var targetElementId = this.getAttribute("href").split("#")[1];
+//     var goToPosition = document.getElementById(targetElementId).offsetTop - 56;
+//     var distance = goToPosition - currentPosition;
 
-    var totalStep = 40;
-    var currentStep = 0;
-    var intervalTime = 10;
+//     var totalStep = 40;
+//     var currentStep = 0;
+//     var intervalTime = 10;
 
-    var scrollby = distance / totalStep;
+//     var scrollby = distance / totalStep;
 
-    var isScrollElementBody = document.scrollingElement && document.scrollingElement.tagName == "BODY";
+//     var isScrollElementBody = document.scrollingElement && document.scrollingElement.tagName == "BODY";
 
-    var interval = setInterval(function() {
-      if (currentStep < totalStep) {
-        isScrollElementBody ? (document.body.scrollTop += scrollby) : (document.documentElement.scrollTop += scrollby);
-        currentStep++;
-      } else {
-        clearInterval(interval);
-      }
-    }, intervalTime);
-  }
-});
+//     var interval = setInterval(function() {
+//       if (currentStep < totalStep) {
+//         isScrollElementBody ? (document.body.scrollTop += scrollby) : (document.documentElement.scrollTop += scrollby);
+//         currentStep++;
+//       } else {
+//         clearInterval(interval);
+//       }
+//     }, intervalTime);
+//   }
+// });
 
 // --------------------   print   --------------------
 

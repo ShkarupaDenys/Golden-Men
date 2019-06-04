@@ -15,13 +15,14 @@
 		<script src="js/jq.js" defer></script>
 		<script src="js/wow.min.js" defer></script>
 		<script src="js/slick.min.js" defer></script>
+		<script src="js/vanillajs-scrollspy.js" defer></script>
 		<script src="js/myScript.js" defer></script>
 	</head>
 	<body>
 		<div class="wrapper mx-auto">
 			<header class="header">
 				<div class="header-mobile position-relative d-xl-none">
-					<nav class="nav-mobile position-absolute">
+					<nav class="nav-mobile position-absolute" id="navbar-mob">
 						<ul class="nav-mobile__list d-flex justify-content-center align-items-center flex-column">
 							<li class="nav-mobile__item w-100 d-flex justify-content-center nav-mobile__item_border">
 								<a href="tel:+0992777080" class="nav-link-phone d-inline-flex position-relative">
@@ -115,8 +116,8 @@
 								</a>
 							</div>
 							<div class="col-auto d-flex align-items-center justify-content-center">
-								<nav class="nav">
-									<div class="nav__list d-flex">
+								<nav class="nav" id="navbar">
+									<div class="nav__list d-flex navbar-start">
 										<!-- <li class="nav__item"> -->
 											<a href="#history" class="nav__link d-inline-flex scroll-link">
 												Об авторе

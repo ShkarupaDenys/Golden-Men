@@ -469,11 +469,10 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	margin: 0 10px;
 	transition: color .5s ease;
 }
-/*.nav__link:link,
-.nav__link:visited
+.nav__link.active
 {
 	border-bottom: 1px solid var(--color-main);
-}*/
+}
 .nav__link:hover
 {
 	color: #fff;
