@@ -248,6 +248,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	transform: translateY(38px);
 }
 
+
 /*--------------------   hamburger-menu   --------------------*/
 
 .hamburger-menu
@@ -297,17 +298,20 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 
 .header
 {
+	z-index: 30;
+	/*transition: all .05s linear;*/
+	/*background: grey;*/
+	background: transparent;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 30;
-	/*transition: all .05s linear;*/
 }
 .header_active
 {
+	
 	background: url("../img/nav-mob-bg.png") repeat;
-	height: 80px;
+	/*height: 80px;*/
 	transition: all .4s linear;
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);	
 }
@@ -364,6 +368,12 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	letter-spacing: 0.15em;
 	line-height: 17px;
 	padding-left: 24px;
+	transition: color .5s ease;
+}
+.nav-mobile__link:hover
+{
+	color: var(--color-main);
+	transition: color .5s ease;
 }
 .nav-link-phone:before
 {
@@ -375,6 +385,11 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	position: absolute;
 	left: -7px;
 	top: -6px;
+}
+.nav-link-phone:hover
+{
+	color: var(--color-main);
+	transition: color .5s ease;
 }
 .nav-mobile__item
 {
@@ -390,6 +405,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	opacity: 0.8;
 	font-size: 12px;
 	line-height: 19px;
+	transition: color .5s ease;
 }
 .link-social
 {
@@ -451,13 +467,18 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	padding: 14px 0;
 	box-sizing: border-box;
 	margin: 0 10px;
+	transition: color .5s ease;
 }
-.nav__link:hover
+/*.nav__link:link,
+.nav__link:visited
 {
 	border-bottom: 1px solid var(--color-main);
-	color: var(--color-main);
+}*/
+.nav__link:hover
+{
+	color: #fff;
+	transition: color .5s ease;
 }
-
 /*--------------------   services   --------------------*/
 
 .services
@@ -609,6 +630,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	line-height: 41px;
 	color: #FFFFFF;
 	margin: 0 0 30px 0;
+	display: inline-block;
 }
 .banner .address-link
 {
@@ -681,7 +703,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	margin-top: 90px;
 	font-weight: 700;
 }
-.progress-list__item:before
+/*.progress-list__item:before
 {
 	content: "";
 	width: auto;
@@ -712,6 +734,29 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 .progress-list__item_students:before
 {
 	content: "35";
+}*/
+.counter
+{
+	position: absolute;
+	left: -59px;
+	bottom: -12px;
+	height: 134px;
+	width: 100%;
+	z-index: -1;	
+}
+.counter-number
+{
+	font-family: var(--font-second);
+	font-size: 120px;
+	line-height: 134px;
+	color: #F3E7CF;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 /*--------------------   block-record   --------------------*/
@@ -724,6 +769,10 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 .block-record__img
 {
 	max-width: 100%;
+}
+.block-record_mt
+{
+	margin-top: 114px;
 }
 
 /*--------------------   about-us   --------------------*/
@@ -754,6 +803,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	background: url("../img/nav-mob-bg.png") repeat;
 	background-size: cover;
 	padding: 30px 0 76px;
+	overflow: hidden;
 }
 .slider-porfolio__img
 {
@@ -896,28 +946,10 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 
 .reviews
 {
-	overflow: hidden;
-	padding: 10px 0 114px;
-}
-/*.video
-{
-	 object-fit: cover
-}*/
-/*.video-wrapper:before
-{
-	content: "";
-	display: block;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background: #000;
-	opacity: .8;
-	width: 100%;
+	/*overflow: hidden;*/
 	height: 100%;
-	display: none;
-}*/
+	/*padding-bottom: 114px;*/
+}
 .play-pause
 {
 	width: 65px;
@@ -941,13 +973,14 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 {
 	opacity: 0;
 	transition: all .4s linear;
+	visibility: hidden;
 }
 .blockquote-wrapper
 {
 	position: absolute;
 	left: 15px;
 	bottom: -250px;
-	z-index: 1;
+	z-index: 2;
 }
 .blockquote
 {
@@ -955,7 +988,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	margin: 0;
 	padding: 40px 9px;
 	width: 203px;
-	z-index: 1;
+	z-index: 2;
 }
 .blockquote:before
 {
@@ -977,12 +1010,6 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	line-height: 12px;
 	color: #fff;
 }
-/*.cleaning-video
-{
-	opacity: 0;
-	visibility: hidden;
-	transition: all .5s linear;
-}*/
 .frame-caption_7_animate
 {
 	transform: translateX(300%);
@@ -995,11 +1022,11 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	transform: translateY(500px);
 	/*opacity: 0;*/
 	transition: all 1.8s ease;
-	visibility: hidden;
+	/*visibility: hidden;*/
 }
 .videoWrapper {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 56.25%;
 	padding-top: 25px;
 	height: 0;
 }
@@ -1010,12 +1037,27 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	width: 100%;
 	height: 100%;
 }
+.video
+{
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+.video_animate
+{
+	opacity: 0;
+	visibility: hidden;
+}
 
 /*--------------------   instagram   --------------------*/
 
 .instagram
 {
 	padding-bottom: 69px;
+	overflow: hidden;
 }
 .instagram-box
 {
@@ -1179,6 +1221,14 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	line-height: 16px;
 	letter-spacing: 0.15em;
 	margin-top: 15px;
+	transition: color .4s ease;
+}
+.footer-mail:hover,
+.footer-phone:hover,
+.copyright__link:hover
+{
+	color: var(--color-main);
+	transition: color .4s ease;
 }
 #map
 {
@@ -1210,6 +1260,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	padding-bottom: 3px;
 	border-bottom: 1px solid rgba(213, 172, 95, 0.5);
 	font-weight: bold;
+	transition: color 4s ease;
 }
 
 .glide__banner-controls-wrapper
@@ -1379,6 +1430,96 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 
 
 
+.css-typing p {
+  border-right: .15em solid var(--color-main);
+  font-family: var(--font-second);
+  font-size: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.css-typing p:nth-child(1) {
+  width: 500px;
+  -webkit-animation: type 2s steps(40, end);
+  animation: type 2s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+/*.css-typing p:nth-child(2) {
+  width: 11.5em;
+  opacity: 0;
+  -webkit-animation: type2 2s steps(40, end);
+  animation: type2 2s steps(40, end);
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.css-typing p:nth-child(3) {
+  width: 7.3em;
+  opacity: 0;
+  -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+  animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}*/
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+}
 
 
 
@@ -1511,7 +1652,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 		position: absolute;
 		left: 0;
 		top: 5vh;
-		z-index: 1;
+		z-index: 2;
 	}
 	.frame-caption_7:before
 	{
@@ -1520,7 +1661,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	.blockquote-wrapper
 	{
 		left: 0px;
-		bottom: -400px;
+		bottom: -480px;
 	}
 	.blockquote
 	{
@@ -1698,7 +1839,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	}
 	.blockquote-wrapper
 	{
-		bottom: -500px;
+		bottom: -550px;
 	}
 	.instagram
 	{
@@ -1763,6 +1904,10 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 		line-height: 24px;
 		color: rgba(202, 165, 92, 0.5);
 	}
+	.reviews
+	{
+		overflow: hidden;
+	}
 }
 @media (min-width: 1200px)
 {
@@ -1797,7 +1942,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	}
 	.header_active
 	{
-		height: 97px;
+		/*height: 97px;*/
 	}
 	.nav-link-phone 
 	{
@@ -1870,6 +2015,10 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	{
 		font-size: 18px;
 		line-height: 22px;
+	}
+	.reviews
+	{
+		/*height: calc(100vh - 109px);*/
 	}
 }
 @media (min-width: 1347px)

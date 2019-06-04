@@ -1,8 +1,191 @@
 
- // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
+// --------------------   scroll   --------------------
 
-      tag.src = "https://www.youtube.com/iframe_api";
+document.addEventListener("DOMContentLoaded", function() {
+  var scrollLinks = document.querySelectorAll('.scroll-link');
+  for (var i = 0; i < scrollLinks.length; i++) {
+    scrollLinks[i].addEventListener("click", scrollHandler);
+  }
+
+  function scrollHandler(event) {
+    event.preventDefault();
+
+    menu.classList.remove('nav-mobile_active');
+    hamburgerMenu.classList.remove('hamburger-menu_active');
+
+    var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    var targetElementId = this.getAttribute("href").split("#")[1];
+    var goToPosition = document.getElementById(targetElementId).offsetTop - 56;
+    var distance = goToPosition - currentPosition;
+
+    var totalStep = 40;
+    var currentStep = 0;
+    var intervalTime = 10;
+
+    var scrollby = distance / totalStep;
+
+    var isScrollElementBody = document.scrollingElement && document.scrollingElement.tagName == "BODY";
+
+    var interval = setInterval(function() {
+      if (currentStep < totalStep) {
+        isScrollElementBody ? (document.body.scrollTop += scrollby) : (document.documentElement.scrollTop += scrollby);
+        currentStep++;
+      } else {
+        clearInterval(interval);
+      }
+    }, intervalTime);
+  }
+});
+
+// --------------------   print   --------------------
+
+let printHistoryExperience = new Typed('#experience', {
+    stringsElement: '#strings-experience',
+    showCursor: false
+  });
+
+let printHistoryClients = new Typed('#clients', {
+    stringsElement: '#string-clients',
+    showCursor: false
+  });
+
+let printHistoryYears = new Typed('#years', {
+    stringsElement: '#string-years',
+    showCursor: false
+  });
+
+let printHistoryStudents = new Typed('#students', {
+    stringsElement: '#string-students',
+    showCursor: false
+  });
+
+let printHistoryCaption = new Typed('#history-caption', {
+    stringsElement: '#string-history-caption',
+    showCursor: false
+  });
+
+let printRecordCaptionHundred = new Typed('#record-caption-100', {
+    stringsElement: '#string-record-caption-100',
+    showCursor: false,
+    typeSpeed: 80,
+  });
+
+let printRecordCaptionBeard = new Typed('#record-caption-beard', {
+    stringsElement: '#string-record-caption-beard',
+    showCursor: false
+  });
+
+let printServicesCaption = new Typed('#services-caption', {
+    stringsElement: '#string-services-caption',
+    showCursor: false
+  });
+
+let printAboutUsCaptionMob = new Typed('#about-us-caption-mob', {
+    stringsElement: '#string-about-us-caption-mob',
+    showCursor: false
+  });
+
+let printAboutUsCaption = new Typed('#about-us-caption', {
+    stringsElement: '#string-about-us-caption',
+    showCursor: false
+  });
+
+let printPortfolioCaption = new Typed('#portfolio-caption', {
+    stringsElement: '#string-portfolio-caption',
+    showCursor: false
+  });
+
+let printTeamCaption = new Typed('#team-caption', {
+    stringsElement: '#string-team-caption',
+    showCursor: false
+  });
+
+let printReviewsCaption = new Typed('#reviews-caption', {
+    stringsElement: '#string-reviews-caption',
+    showCursor: false
+  });
+
+let printInstagramCaption = new Typed('#instagram-caption', {
+    stringsElement: '#string-instagram-caption',
+    showCursor: false
+  });
+
+let printFAQCaption = new Typed('#faq-caption', {
+    stringsElement: '#string-faq-caption',
+    showCursor: false
+  });
+
+let printFooterCaption = new Typed('#footer-caption', {
+    stringsElement: '#string-footer-caption',
+    showCursor: false
+  });
+
+// --------------------   сounter   --------------------
+
+const Counter = {
+    settings: {
+        speed: 3000
+    },
+
+    count: function(number_el, number) {
+        const _this = this;
+
+        let speed = _this.settings.speed;
+        if (number_el.hasAttribute("data-speed")) {
+            speed = parseInt(number_el.getAttribute("data-speed"));
+        }
+
+        if (number_el && number > 0) {
+            const step_min = 50;
+            let step_speed = Math.abs(Math.floor(speed / number));
+                step_speed = Math.max(step_speed, step_min);
+
+            const start_time = new Date().getTime();
+            const end_time = start_time + speed;
+            let timer;
+
+            const step = () => {
+                const now = new Date().getTime();
+                const left = Math.max((end_time - now) / speed, 0);
+                const value = Math.round(number - (left * number));
+                number_el.innerHTML = value;
+                if (value == number)
+                    clearInterval(timer);
+            };
+
+            timer = setInterval(step, step_speed);
+            step();
+        }
+    },
+
+    init: function(el) {
+        const _this = this;
+        const number_el = el.getElementsByClassName("counter-number")[0];
+        const number = parseInt(number_el.innerText);
+        number_el.innerHTML = "0";
+        _this.count(number_el, number);
+    }
+};
+
+(function() {
+    // Initiate all instances on the page
+    const counters = document.getElementsByClassName("counter");
+    for (let i = 0; i < counters.length; i++) {
+        Counter.init(counters[i]);
+    }
+})();
+
+
+
+
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      let btnPlayPause = document.querySelector('.play-pause'),
+        videoCaption = document.querySelector('.frame-caption_7-wrapper'),
+        videoQuote = document.querySelector('.blockquote-wrapper'),
+        videoMask = document.querySelector('.video');
+
+      tag.src = "https://www.youtube.com/player_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -12,8 +195,9 @@
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
           height: '360',
-          width: '640',
+          width: '540',
           videoId: 'jNVZjNB8ptk',
+            playerVars: {rel: 0, showinfo: 0, ecver: 2},
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -23,7 +207,21 @@
 
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
-        event.target.playVideo();
+        // event.target.playVideo();
+          // $('.play-button').on('click', function () {
+          //     player.playVideo();
+          // })
+          btnPlayPause.addEventListener('click', () => {
+             player.playVideo();
+             btnPlayPause.classList.add('play-pause_hide');
+             videoQuote.classList.add('blockquote_animate');
+             videoMask.classList.add('video_animate');
+             if ( document.body.clientWidth >= 768 ) {
+                videoCaption.classList.add('frame-caption_7_animate');
+            } else {
+                false;
+            };
+          });
       }
 
       // 5. The API calls this function when the player's state changes.
@@ -34,9 +232,18 @@
         if (event.data == YT.PlayerState.PLAYING && !done) {
           // setTimeout(stopVideo, 6000);
           // done = true;
+
+            $('.play-button').on('click', function () {
+                player.pauseVideo();
+
+            })
+        } else {
+            $('.play-button').on('click', function () {
+                player.playVideo();
+            })
         }
       }
-      function stopVideo() { 
+      function stopVideo() {
         player.stopVideo();
       }
 
@@ -133,30 +340,6 @@ if ( window.innerWidth === 1024 && window.innerHeight === 1366 ){
         e.classList.remove('col-lg-5')
     }) 
 };
-
-//--------------------  video   --------------------
-
-let video = document.querySelector('.video'),
-    btnPlayPause = document.querySelector('.play-pause'),
-    videoCaption = document.querySelector('.frame-caption_7-wrapper'),
-    videoQuote = document.querySelector('.blockquote-wrapper');
-
-    btnPlayPause.addEventListener('click', function() {
-        if ( video.paused == true ) {
-            video.play();
-            btnPlayPause.classList.add('play-pause_hide');
-            video.setAttribute('controls', 'controls');
-            videoQuote.classList.add('blockquote_animate');
-            if ( document.body.clientWidth >= 768 ) {
-                videoCaption.classList.add('frame-caption_7_animate');
-            } else {
-                false;
-            }
-        } else {
-            video.pause();
-            video.removeAttribute('controls');
-        }
-    });
 
 //--------------------  WOW   --------------------
 
