@@ -56,7 +56,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 {
 	max-width: 1920px;
 	position: relative;
-	z-index: 10;
+	z-index: 200;
 	overflow: hidden;
 	font-family: var(--font-main);
 }
@@ -413,6 +413,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	height: 30px;
 	opacity: 0.5;
 	transition: all .4s linear;
+	z-index: 2;
 }
 .nav-mobile__item .link-social
 {
@@ -597,16 +598,16 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 }
 .banner__foto-barber
 {
-	background: url("../img/banner-barber-2.png") no-repeat;
-	background-size: contain;
+	background: url("../img/banner-barber-1.png") no-repeat;
+	background-size: cover;
 	height: calc(100vh - 84px);
 	width: 100%;
 	display: block;
 	position: absolute;
 	background-position: center bottom;
 	left: 0;
-	right: 0;
 	top: 84px;
+	z-index: 2;
 }
 .banner__content
 {
@@ -769,10 +770,6 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 {
 	max-width: 100%;
 }
-.block-record_mt
-{
-	margin-top: 114px;
-}
 
 /*--------------------   about-us   --------------------*/
 
@@ -803,6 +800,25 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	background-size: cover;
 	padding: 30px 0 76px;
 	overflow: hidden;
+}
+.slider-porfolio-mobile .slider-porfolio__slide
+{
+	overflow: hidden;
+	height: 240px;
+}
+.slider-porfolio-mobile .slider-porfolio__img
+{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	object-fit: cover;
+}
+.slider-porfolio
+{
+	z-index: 2;
 }
 .slider-porfolio__img
 {
@@ -841,6 +857,39 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 {
 	margin-bottom: 20px;
 }
+.gallery
+{
+	width: 100%;
+	height: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .7);
+	z-index: 10;
+}
+.gallery__close
+{
+	width: 34px;
+	height: 34px;
+	right: 50px;
+	top: 50px;
+	cursor: pointer;
+}
+.gallery__close-line
+{
+	width: 34px;
+	height: 1px;
+	background: var(--color-main);
+	border-radius: 5px;
+	transform: rotate(-45deg);
+	cursor: pointer;
+}
+.gallery__close-line:nth-child(2)
+{
+	transform: rotate(45deg);
+}
+
 
 /*--------------------   team  --------------------*/
 
@@ -854,6 +903,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	width: 290px;
 	height: 356px;
 	margin-top: 48px;
+	z-index: 2;
 }
 .team__barber-foto
 {
@@ -953,7 +1003,7 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 {
 	width: 65px;
 	height: 65px;
-	background: url(../img/svg/btn-play.svg) no-repeat;
+	background: url(../img/btn-play-icon.png) no-repeat;
 	background-size: cover;
 	top: 0;
 	bottom: 0;
@@ -1521,10 +1571,60 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 }
 
 
-
-
-
-
+.line
+{
+	position: absolute;
+	width: 1px;
+	top: 0;
+	left: 8.38541666667%;
+	height: 100%;
+	background: transparent;
+	z-index: 1;
+	display: block;
+}
+.line_light
+{
+	background: rgba(255, 255, 255, 0.08);
+	/*background: red;*/
+}
+.line_dark
+{
+	background: rgba(0, 0, 0, 0.08);
+}
+.line:nth-child(2)
+{
+	left: 20.2604166667%;
+}
+.line:nth-child(3)
+{
+	left: 32.0833333333%;
+}
+.line:nth-child(4)
+{
+	left: 44.0104166667%;
+}
+.line:nth-child(5)
+{
+	left: 55.8854166667%;
+}
+.line:nth-child(6)
+{
+	left: 67.8125%;
+}
+.line:nth-child(7)
+{
+	left: auto;
+	right: 20.2604166667%;
+}
+.line:nth-child(8)
+{
+	left: auto;
+	right: 8.38541666667%;
+}
+.z-index-2
+{
+	z-index: 2;
+}
 
 
 
@@ -1684,6 +1784,11 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	{
 		height: 370px;
 	}
+	.banner__foto-barber
+	{
+		left: 0;		        
+		background-size: 80%;
+	}
 }
 @media (min-width: 992px)
 {
@@ -1782,14 +1887,137 @@ p, h1, h2, h3, h4, h5, h6, blockquote, label
 	}
 	.banner__foto-barber
 	{
-		background: url("../img/banner-barber-2.png") no-repeat;
+		background: url("../img/banner-barber-1.png") no-repeat;
 		background-size: contain;
 		height: calc(100vh - 84px);
-		background-position: center bottom;
+		/*background-position: center bottom;*/
+		/*left: 0;
+		top: 84px;*/
+		position: relative;
+		width: 100%;
+		
+	}
+	.banner__foto-barber:before
+	{
+		content: "";
+		display: block;
+		position: absolute;
+		/*background-position: center bottom;*/
+		width: 100%;
+		height: 100%;
+		top: 0;
 		left: 0;
 		right: 0;
-		top: 84px;
+		bottom: 0;
+		background: url("../img/banner-barber-1.png") no-repeat;
+		background-size: contain;
+		height: calc(100vh - 84px);
+		opacity: .8;
+		/*mix-blend-mode: hard-light;*/
 	}
+	.banner__foto-barber:hover:before
+	{
+		animation: glitch .2s infinite;
+	}
+	@keyframes glitch {
+		0% 
+		{
+			background-position: 0 0;
+			filter: blur(5px);
+			filter: brightness(0.2);
+			filter: invert(100%);
+		}
+		10% 
+		{
+			background-position: 20px 0;
+		}
+		20% 
+		{
+			background-position: -20px 0;
+		}
+		30% 
+		{
+			background-position: 12px 0;
+		}
+		40% 
+		{
+			background-position: -16px 0;
+		}
+		50% 
+		{
+			background-position: -24px 0;
+			filter: blur(2px);
+		}
+		60% 
+		{
+			background-position: -12px 0;
+		}
+		70% 
+		{
+			background-position: 0 22px;
+		}
+		80% 
+		{
+			background-position: -20px -10px;
+		}
+		90% 
+		{
+			background-position: 20px -10px;
+		}
+		100% 
+		{
+			background-position: 0 0;
+			filter: hue-rotate(360deg);
+			filter: blur(0);
+			filter: brightness(1);
+			filter: invert(0);
+		}	
+	}
+	@keyframes glitch2 {
+		0% 
+		{
+			background-position: 0 0;
+			filter: hue-rotate(70deg);
+		}
+		10% 
+		{
+			background-position: -60px 0;
+		}
+		20% 
+		{
+			background-position: 60px 0;
+		}
+		30% 
+		{
+			background-position: -12px 0;
+		}
+		40% 
+		{
+			background-position: 16px 0;
+		}
+		50% 
+		{
+			background-position: 24px 0;
+		}
+		60% 
+		{
+			background-position: 52px 0;
+		}
+		70% 
+		{
+			background-position: 0 -42px;
+		}
+		80% 
+		{
+			background-position: 40px 30px;
+		}
+		100% 
+		{
+			background-position: 0 0;
+			filter: hue-rotate(360deg);
+		}	
+	}
+
 	/*.glide__controls-about-wrapper
 	{
 		bottom: 0;
