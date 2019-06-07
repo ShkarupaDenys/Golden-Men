@@ -1,4 +1,26 @@
 
+
+const galleryItem = document.querySelectorAll('.slider-porfolio .slider-porfolio__mask');
+const blockPortfolio = document.querySelector('.portfolio');
+
+function changePosGallery(){
+  header.classList.add('header_hide');
+  blockPortfolio.classList.add('portfolio_top');
+}
+
+galleryItem.forEach( e => {
+  e.addEventListener('click',changePosGallery);
+});
+
+
+
+lightGallery(document.getElementById('gallery-frame-one'), {
+    download: false,
+    counter: false
+});
+
+
+
 // --------------------   scroll   --------------------
 
 const navbar = document.querySelector('#navbar');
@@ -8,6 +30,22 @@ scrollspy.init();
 const navbarMob = document.querySelector('#navbar-mob');
 const scrollspyMob = new VanillaScrollspy(navbarMob, 2000);
 scrollspyMob.init();
+
+const logo = document.querySelector('#logo');
+const scrollLogo = new VanillaScrollspy(logo, 2000);
+scrollLogo.init();
+
+const logoMob = document.querySelector('#logo-mob');
+const scrollLogoMob = new VanillaScrollspy(logoMob, 2000);
+scrollLogoMob.init();
+
+const adressLink = document.querySelector('#location-wrap');
+const scrollAdressLink = new VanillaScrollspy(adressLink, 2000);
+scrollAdressLink.init();
+
+const adressLinkMob = document.querySelector('#location-wrap-mob');
+const scrollAdressLinkMob = new VanillaScrollspy(adressLinkMob, 2000);
+scrollAdressLinkMob.init();
 
 // --------------------   print   --------------------
 
@@ -327,7 +365,6 @@ $('.slider-banner').slick({
     slidesToScroll: 1,
     arrows: false,
     dots: true,
-    adaptiveHeight: true
 });
 
 $('.about-us-slider').slick({

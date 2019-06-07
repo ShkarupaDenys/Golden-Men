@@ -11,11 +11,13 @@
 		<link rel="stylesheet" href="css/text-cursor.css">
 		<link rel="stylesheet" href="css/animate.css">
 		<link rel="stylesheet" href="css/my-animation.css">
+		<link rel="stylesheet" href="css/lightgallery.css">
 		<link rel="stylesheet" href="css/main.css">
 		<script src="js/jq.js" defer></script>
 		<script src="js/wow.min.js" defer></script>
 		<script src="js/slick.min.js" defer></script>
 		<script src="js/vanillajs-scrollspy.js" defer></script>
+		<script src="js/lightgallery.js" defer></script>
 		<script src="js/myScript.js" defer></script>
 	</head>
 	<body>
@@ -81,9 +83,11 @@
 								</div>
 							</li>
 							<li class="nav-mobile__item">
+								<div id="location-wrap-mob">
 								<a href="#location" class="address-link d-inline-flex position-relative scroll-link">
 									Харьков ул. Сумская, 77/79
 								</a>
+								</div>
 							</li>
 						</ul>
 					</nav>
@@ -96,9 +100,11 @@
 										<span class="hamburger-menu__line d-block"></span>
 										<span class="hamburger-menu__line d-block"></span>
 									</div>
-									<a href="#" class="logo d-block">
-										<img src="img/logo.png" alt="Golden Men" class="logo__img d-block">
-									</a>
+									<div id="logo-mob">
+										<a href="#home" class="logo d-block">
+											<img src="img/logo.png" alt="Golden Men" class="logo__img d-block">
+										</a>
+									</div>
 									<button class="nav-mobile__btn-record button_record">
 									<object data="img/svg/bnt-record-mob.svg" type=""></object>
 									</button>
@@ -111,45 +117,47 @@
 					<div class="container-fluid">
 						<div class="row d-flex justify-content-between">
 							<div class="col-auto">
-								<a href="#" class="logo d-block">
-									<img src="img/logo.png" alt="Golden Men" class="logo__img d-block">
-								</a>
+								<div id="logo">
+									<a href="#home" class="logo d-block">
+										<img src="img/logo.png" alt="Golden Men" class="logo__img d-block">
+									</a>
+								</div>
 							</div>
 							<div class="col-auto d-flex align-items-center justify-content-center">
 								<nav class="nav" id="navbar">
 									<div class="nav__list d-flex navbar-start">
 										<!-- <li class="nav__item"> -->
-										<a href="#history" class="nav__link d-inline-flex scroll-link">
+										<a href="#history" class="nav__link d-inline-flex">
 											Об авторе
 										</a>
 										<!-- </li> -->
 										<!-- <li class="nav__item"> -->
-										<a href="#services" class="nav__link d-inline-flex scroll-link">
+										<a href="#services" class="nav__link d-inline-flex">
 											Цены и услуги
 										</a>
 										<!-- </li> -->
 										<!-- <li class="nav__item"> -->
-										<a href="#about-us" class="nav__link d-inline-flex scroll-link">
+										<a href="#about-us" class="nav__link d-inline-flex">
 											О нас
 										</a>
 										<!-- </li> -->
 										<!-- <li class="nav__item"> -->
-										<a href="#portfolio" class="nav__link d-inline-flex scroll-link">
+										<a href="#portfolio" class="nav__link d-inline-flex">
 											Портфолио
 										</a>
 										<!-- </li> -->
 										<!-- <li class="nav__item"> -->
-										<a href="#team" class="nav__link d-inline-flex scroll-link">
+										<a href="#team" class="nav__link d-inline-flex">
 											Команда
 										</a>
 										<!-- </li> -->
 										<!-- <li class="nav__item"> -->
-										<a href="#reviews" class="nav__link d-inline-flex scroll-link">
+										<a href="#reviews" class="nav__link d-inline-flex">
 											Отзывы
 										</a>
 										<!-- </li> -->
 										<!-- <li class="nav__item"> -->
-										<a href="#faq" class="nav__link d-inline-flex scroll-link">
+										<a href="#faq" class="nav__link d-inline-flex">
 											Вопрос ответ
 										</a>
 										<!-- </li> -->
@@ -270,7 +278,7 @@
 									</div>
 						</div>
 			</div> -->
-			<div class="banner position-relative">
+			<div class="banner position-relative" id="home">
 				<span class="line line_light"></span>
 				<span class="line line_light"></span>
 				<span class="line line_light"></span>
@@ -320,11 +328,13 @@
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 justify-content-between d-flex">
-									<a href="#location" class="address-link d-inline-flex position-relative scroll-link">
-										Харьков
-										<br>
-										ул. Сумская, 77/79
-									</a>
+									<div id="location-wrap">
+										<a href="#location" class="address-link d-inline-flex position-relative scroll-link">
+											Харьков
+											<br>
+											ул. Сумская, 77/79
+										</a>
+									</div>
 									<div class="link-social-wrapper d-flex">
 										<a href="#" class="link-social link-social link-social_fb d-block">
 										</a>
@@ -715,13 +725,13 @@
 					<div class="row">
 						<div class="col-12">
 							<h2 class="frame-caption frame-caption_5">
-							<div id="string-portfolio-caption">
-								<span>Портфолио</span>
-							</div>
-							<span id="portfolio-caption"></span>
+								<div id="string-portfolio-caption">
+									<span>Портфолио</span>
+								</div>
+								<span id="portfolio-caption"></span>
 							</h2>
 						</div>
-						<div class="col-12">
+						<div class="col-12 mt-3 mt-md-4 mt-lg-5">
 							<div class="slider-porfolio-mobile d-md-none position-relative wow fadeInUpBig" data-wow-duration="1.5s">
 								<div class="slider-porfolio__slide position-relative">
 									<span class="slider-porfolio__mask d-flex position-absolute align-items-center justify-content-center">
@@ -729,7 +739,7 @@
 									</span>
 									<img src="img/portfolio-foto-1.jpg" alt="" class="slider-porfolio__img d-block mx-auto">
 								</div>
-								<div class="slider-porfolio__slide position-relative">
+								<div class="slider-porfolio__slide position-relative" data-src="https://barber.news/wp-content/uploads/2018/06/Barbershop_034smoke_c_Lupi_Spuma-2-2100x1200.jpeg">
 									<span class="slider-porfolio__mask d-flex position-absolute align-items-center justify-content-center">
 										увеличить
 									</span>
@@ -768,14 +778,14 @@
 							</div>
 							<div class="slider-porfolio position-relative d-none d-md-block wow fadeInUpBig" data-wow-duration="1.5s">
 								<div class="slider-porfolio__slide position-relative">
-									<div class="slide-portfolio-inner-wrapper">
-										<div class="slide-portfolio-img-wrapper portfolio__img-1 position-relative">
+									<div class="slide-portfolio-inner-wrapper" id="gallery-frame-one">
+										<div class="slide-portfolio-img-wrapper portfolio__img-1 position-relative" data-src="https://barber.news/wp-content/uploads/2018/06/Barbershop_034smoke_c_Lupi_Spuma-2-2100x1200.jpeg">
 											<span class="slider-porfolio__mask d-flex position-absolute align-items-center justify-content-center">
 												увеличить
 											</span>
 											<img src="img/portfolio-foto-1.jpg" alt="" class="slider-porfolio__img d-block mx-auto">
 										</div>
-										<div class="slide-portfolio-img-wrapper portfolio__img-2 position-relative">
+										<div class="slide-portfolio-img-wrapper portfolio__img-2 position-relative" data-src="img/banner-bg.png">
 											<span class="slider-porfolio__mask d-flex position-absolute align-items-center justify-content-center">
 												увеличить
 											</span>
@@ -907,12 +917,6 @@
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="gallery position-absolute d-none">
-					<div class="gallery__close position-absolute d-flex ali">
-						<span class="gallery__close-line d-block position-absolute"></span>
-						<span class="gallery__close-line d-block position-absolute"></span>
 					</div>
 				</div>
 			</section>
