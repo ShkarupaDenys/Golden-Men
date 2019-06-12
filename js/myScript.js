@@ -2,15 +2,30 @@
 
 const galleryItem = document.querySelectorAll('.slider-porfolio .slider-porfolio__mask');
 const blockPortfolio = document.querySelector('.portfolio');
+const body = document.body;
+const wrapper = document.querySelector('.wrapper');
+const sliderPortfolio = document.querySelector('.slider-porfolio');
+const bgGallery = document.querySelector('.lg-backdrop.in');
+
+console.log(bgGallery);
 
 function changePosGallery(){
   header.classList.add('header_hide');
-  blockPortfolio.classList.add('portfolio_top');
+  body.classList.add('overflow');
+
+  $('.slide-portfolio-img-wrapper').on('click', function () {
+    let portfolioOffset = $('.portfolio').offset().top
+
+    $('html, body').animate({ scrollTop: portfolioOffset }, 'slow');
+})
 }
 
-galleryItem.forEach( e => {
-  e.addEventListener('click',changePosGallery);
-});
+
+// galleryItem.forEach((elem) => {
+//   elem.addEventListener('click', changePosGallery)
+// });
+
+
 
 
 
@@ -129,6 +144,21 @@ let printFooterCaption = new Typed('#footer-caption', {
     stringsElement: '#string-footer-caption',
     showCursor: false
   });
+
+let printBannerCaptionFirst = new Typed('#banner-caption-first', {
+    stringsElement: '#string-banner-caption-first',
+    showCursor: false
+});
+
+let printBannerCaptionTwo = new Typed('#banner-caption-two', {
+    stringsElement: '#string-banner-caption-two',
+    showCursor: false
+});
+
+// let printBannerCaptionThree = new Typed('#banner-caption-three', {
+//     stringsElement: '#string-banner-caption-three',
+//     showCursor: false
+// });
 
 // --------------------   сounter   --------------------
 
